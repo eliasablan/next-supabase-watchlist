@@ -34,8 +34,6 @@ export default function AuthForm() {
     );
   }
 
-  console.log("url:", getURL());
-
   return (
     <SocialAuth
       supabaseClient={supabase}
