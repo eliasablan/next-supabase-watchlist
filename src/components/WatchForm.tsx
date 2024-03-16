@@ -1,8 +1,18 @@
+"use client";
+import { useRef } from "react";
 import addWatch from "@/server-actions/addWatch";
 
 export default function WatchForm() {
+  const ref = useRef<HTMLFormElement>(null);
   return (
-    <form action={addWatch} className="mb-6">
+    <form
+      ref={ref}
+      action={async (formData) => {
+        await addWatch(formData);
+        ref.current?.reset();
+      }}
+      className="mb-6"
+    >
       <div className="mb-4">
         <label htmlFor="brand" className="block mb-2">
           Brand
