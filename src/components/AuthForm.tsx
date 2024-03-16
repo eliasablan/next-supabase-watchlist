@@ -1,6 +1,6 @@
 "use client";
 
-import { Auth } from "@supabase/auth-ui-react";
+import { SocialAuth } from "@supabase/auth-ui-react";
 import { createClient } from "@/utils/supabase/client";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
 import { useState, useEffect } from "react";
@@ -35,11 +35,9 @@ export default function AuthForm() {
   }
 
   return (
-    <Auth
+    <SocialAuth
       supabaseClient={supabase}
-      view="sign_in"
       providers={["google"]}
-      onlyThirdPartyProviders
       redirectTo={getURL() + "auth/callback"}
       appearance={{
         theme: ThemeSupa,
