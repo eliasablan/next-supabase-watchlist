@@ -1,9 +1,11 @@
 "use client";
 import { useRef } from "react";
 import addWatch from "@/server-actions/addWatch";
+import WatchFormButton from "./WatchFormButton";
 
 export default function WatchForm() {
   const ref = useRef<HTMLFormElement>(null);
+
   return (
     <form
       ref={ref}
@@ -48,12 +50,7 @@ export default function WatchForm() {
           className="shadow appearance-none bg-gray-700 text-white rounded w-full py-2 px-3"
         />
       </div>
-      <button
-        type="submit"
-        className="bg-gray-600 hover:bg-gray-300 text-white hover:text-black font-bold py-2 px-4 rounded"
-      >
-        Add Watch
-      </button>
+      <WatchFormButton />
     </form>
   );
 }
